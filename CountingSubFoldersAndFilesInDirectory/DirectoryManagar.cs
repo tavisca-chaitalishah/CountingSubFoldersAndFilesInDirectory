@@ -9,13 +9,22 @@ namespace CountingSubFoldersAndFilesInDirectory
 {
     class DirectoryManagar
     {
-        public void DisplayFoldersAndFiles(string path)
+        int folder, file;
+        public string DisplayFoldersAndFiles(string path)
         {
-            int directoryCount = Directory.GetDirectories(@path, "*.*", SearchOption.AllDirectories).Length;
-            Console.WriteLine("Total Number of Folder : " + directoryCount);
-
-            int fileCount = Directory.GetFiles(@path, "*.*", SearchOption.AllDirectories).Length;
-            Console.WriteLine("Total Number of Files : " + fileCount);
+           
+            foreach (String folderFile in Directory.GetDirectories(path))
+            {
+                folder++;
+                foreach (string files in Directory.GetFiles(folderFile))
+                {
+                    file++;
+                }
+                DisplayFoldersAndFiles(folderFile);
+            }
+            string result = "Total folders are : " + folder + "\nTotal files are : " + file;
+            return result;
         }
+        
     }
 }

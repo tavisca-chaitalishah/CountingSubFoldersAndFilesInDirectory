@@ -14,7 +14,8 @@ namespace CountingSubFoldersAndFilesInDirectory
             Console.WriteLine("Enter Folder Path : ");
             String path = Console.ReadLine();
             DirectoryManagar directoryManager = new DirectoryManagar();
-            directoryManager.DisplayFoldersAndFiles(path);
+           Console.WriteLine( directoryManager.DisplayFoldersAndFiles(path));
+            Console.WriteLine("Thankyou.\n Please enter any key to Exit the Application...");
             Console.ReadKey();
         }
     }
